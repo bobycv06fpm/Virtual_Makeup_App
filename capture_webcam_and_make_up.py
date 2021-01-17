@@ -57,6 +57,34 @@ while True:
 
 cv.destroyWindow('frame')
 
+"""# 사용자에게 메이크업 사진 팝업 후 입력 받기"""
+
+mkimg0 = dlib.load_rgb_image('test_data/makeup/vFG112.png')
+mkimg1 = dlib.load_rgb_image('test_data/makeup/vFG756.png')
+mkimg2 = dlib.load_rgb_image('test_data/makeup/XMY-014.png')
+mkimg3 = dlib.load_rgb_image('test_data/makeup/XMY-074.png')
+mkimg4 = dlib.load_rgb_image('test_data/makeup/XMY-266.png')
+
+fig2, axe2s = plt.subplots(1, 5, figsize=(20,10))
+
+#나중에 for문으로 변경
+axe2s[0].set_title('1')
+axe2s[0].imshow(mkimg0)
+axe2s[1].set_title('2')
+axe2s[1].imshow(mkimg1)
+axe2s[2].set_title('3')
+axe2s[2].imshow(mkimg2)
+axe2s[3].set_title('4')
+axe2s[3].imshow(mkimg3)
+axe2s[4].set_title('5')
+axe2s[4].imshow(mkimg4)
+
+plt.show()
+
+print("메이크업 하고 싶은 사진을 선택하세요")
+val = input()
+print("다음 메이크업 사진을 선택하셨습니다. ", val)
+
 """# 얼굴 수평 맞추기 함수화"""
 
 def align_faces(img):
@@ -100,8 +128,16 @@ def postprocess(img):
 img1 = dlib.load_rgb_image('captureImg.png')
 img1_faces = align_faces(img1)
 
-img2 = dlib.load_rgb_image('test_data/makeup/vFG756.png')
-img2_faces = align_faces(img2)
+if val == '1':
+    img2_faces = align_faces(mkimg0)
+elif val == '2':
+    img2_faces = align_faces(mkimg1)
+elif val == '3':
+    img2_faces = align_faces(mkimg2)
+elif val == '4':
+    img2_faces = align_faces(mkimg3)
+elif val == '5':
+    img2_faces = align_faces(mkimg4)
 
 #fig, axes = plt.subplots(1, 2, figsize=(16,10))
 #axes[0].imshow(img1_faces[0]) # 이미지에서 얼굴 여러개 검출하였을 수도 있으니까 그 중 가장 첫번째 하나만 불러옴
