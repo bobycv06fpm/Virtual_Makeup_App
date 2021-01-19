@@ -33,6 +33,7 @@ MOUTH_OUTLINE = list(range(48,61))
 MOUTH_INNER = list(range(61,68))
 JAWLINE = list(range(0,17))
 index = ALL
+index2 = RIGHT_EYEBROW
 
 # 트랙바 설정
 def empty(a):
@@ -114,7 +115,7 @@ while True:
     elif key == ord('1'):
         index = ALL
     elif key == ord('2'):
-        index = LEFT_EYEBROW + RIGHT_EYEBROW
+        index = LEFT_EYEBROW and RIGHT_EYEBROW
     elif key == ord('3'):
         index = LEFT_EYE + RIGHT_EYE
     elif key == ord('4'):
