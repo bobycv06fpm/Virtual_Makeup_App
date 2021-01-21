@@ -14,7 +14,8 @@ body{
     border: 3px solid #999;
     border-radius: 20px;
 }
-#videoElement{
+#webcam{
+    display: block;
     margin-top: 20px;
     width: 500px;
     height: 375px;
